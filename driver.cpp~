@@ -83,9 +83,9 @@ double climbing()
     cout << "How many people are going climbing?" << endl;
     cin >> numPeople;
     
-    if (numPeople <= 0)
+    if (numPeople < 0)
     {
-        continue;
+        return 0.00;
     }
     
     else
@@ -115,33 +115,60 @@ double climbing()
 }
 double scuba()
 {
-  double  baseCharge;
+  double  baseCharge, people, discount;
   double totalCost = 0; 
   double peopleLessons, scubaCharge;
   string answer;
   
-  while (true)
+  while (true)// keeps repeating making sure user enters info desired.
   {
+    cout << " Hello, how many people will be attending?\n";
+    cin >> people;
+    
+    if ( people <= 0)
+    {
+      continue;
+    }
+    
     cout << "Would you like scuba lessons? Type yes or no.\n";
     cin >> answer;
     
-      baseCharge = 1000 * people;
     
-    if (answer == "yes")
+     baseCharge = 1000 * people;// calculating basecharge
+     
+    
+    if (answer == "yes")// conditional step to see if they want lessons
      {
        cout << " How many people will be getting lessons?\n";
        cin >> peopleLessons;
        
        scubaCharge = 100 * peopleLessons;
        
-       totalCost = baseCharge + scubaCharge;
+       totalCost = baseCharge + scubaCharge;// calculating totalCost
+       
+       if (people >= 5)// checking to see if user gets a discount
+       {
+         discount = totalCost * .10;
+         totalCost = totalCost - discount;
+         
+         return totalCost;
+       
+       }
        
        return totalCost;
      }
   
-    if ( answer == "no")
+    if ( answer == "no")// if they dont want scuba lessons
     {
-      
+        if (people >= 5)// make sure they get discount if they meet criteria
+       {
+         discount = baseCharge * .10;
+         baseCharge = baseCharge - discount;
+         
+         return baseCharge;
+       
+       }
+       
        return baseCharge;
     
     }
