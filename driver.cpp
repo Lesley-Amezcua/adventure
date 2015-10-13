@@ -115,12 +115,78 @@ double climbing()
 }
 double scuba()
 {
-
+  double  baseCharge;
+  double totalCost = 0; 
+  double peopleLessons, scubaCharge;
+  string answer;
+  
+  while (true)
+  {
+    cout << "Would you like scuba lessons? Type yes or no.\n";
+    cin >> answer;
+    
+      baseCharge = 1000 * people;
+    
+    if (answer == "yes")
+     {
+       cout << " How many people will be getting lessons?\n";
+       cin >> peopleLessons;
+       
+       scubaCharge = 100 * peopleLessons;
+       
+       totalCost = baseCharge + scubaCharge;
+       
+       return totalCost;
+     }
+  
+    if ( answer == "no")
+    {
+      
+       return baseCharge;
+    
+    }
+  
+  }
 
 }
 double skyDive()
 {
-
+  double  baseCharge;
+  double totalCost = 0; 
+  double wildernessLodge, luxuryInn, cost;
+  string answer;
+  
+  while (true)
+  {
+    cout << "Would you like to stay at the Wilderness Lodge or at Luxury Inn? Type in w or l for respective hotel.";
+    cin >> answer;
+    
+      baseCharge = 700 * people;
+    
+    if (answer == "w")
+     {
+       cout << " How many people are staying at the hotel??\n";
+       cin >> wildernessLodge;
+       
+       cost = 65 * wildernessLodge;
+       
+       totalCost = baseCharge + cost;
+       
+       return totalCost;
+     }
+  
+    else if ( answer == "l")
+    {
+      
+      cout << " How many people are staying at the hotel??\n";
+       cin >> luxuryInn;
+       
+       cost = 120 * luxuryInn;
+       
+        return totalCost = baseCharge + cost;
+    
+    }
+    }
 
 }
 double spelunk()
