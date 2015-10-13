@@ -83,9 +83,9 @@ double climbing()
     cout << "How many people are going climbing?" << endl;
     cin >> numPeople;
     
-    if (numPeople < 0)
+    if (numPeople <= 0)
     {
-        return 0.00;
+        continue;
     }
     
     else
