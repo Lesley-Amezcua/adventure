@@ -122,7 +122,7 @@ double scuba()
   
   while (true)// keeps repeating making sure user enters info desired.
   {
-    cout << " Hello, how many people will be attending?\n";
+    cout << " Hello, how many people will be attending Scuba Bahama?\n";
     cin >> people;
     
     if ( people <= 0)
