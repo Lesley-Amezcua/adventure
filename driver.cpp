@@ -18,13 +18,17 @@ double spelunk();
 
 int main()
 {
-        char userChoice, loopController = 'Y';
-        cout << "Welcome to the High Travel Agency Program" << endl;
-        cout << "Which vacation would you like to go on?" << endl;
-        userChoice = menu();
+    char userChoice, loopController = 'Y';
         
     while(loopController == 'Y')
     {
+        cout << endl;
+        cout << "Welcome to the High Travel Agency Program" << endl;
+        cout << "Which vacation would you like to go on?" << endl;
+        cout << endl;
+        menu();
+        cin >> userChoice;
+        
           switch(userChoice)
           {
               case '1':
@@ -57,8 +61,14 @@ int main()
     return 0;
 }
 char menu()
-{
-
+{   
+    cout << "Select your desired choice by keying in the corresponding number and pressing Enter." << endl;
+    cout << endl;
+    cout << "1. Devil's Courthouse Adventure Weekend" << endl;
+    cout << "2. Scuba Bahama" << endl;
+    cout << "3. Sky Dive Colorado" << endl;
+    cout << "4. Barron Cliff Spelunk" << endl;
+    cout << endl;
 }
 double climbing()
 {
