@@ -130,44 +130,40 @@ double scuba()
       continue;
     }
     
-    cout << "Would you like scuba lessons? Type yes or no.\n";
+    cout << "Would you like scuba instructions? Type yes or no.\n";
     cin >> answer;
     
     
      baseCharge = 1000 * people;// calculating basecharge
      
+     if ( people >=5 )
+     {
+     
+       discount = baseCharge * .10;
+       baseCharge = baseCharge - discount;
+     
+     }
+     
     
     if (answer == "yes")// conditional step to see if they want lessons
      {
-       cout << " How many people will be getting lessons?\n";
+       cout << " How many people will be getting instructions?\n";
        cin >> peopleLessons;
+       
+       if ( peopleLessons >= 0 && peopleLessons <= people)
+       {
        
        scubaCharge = 100 * peopleLessons;
        
        totalCost = baseCharge + scubaCharge;// calculating totalCost
-       
-       if (people >= 5)// checking to see if user gets a discount
-       {
-         discount = totalCost * .10;
-         totalCost = totalCost - discount;
-         
-         return totalCost;
-       
-       }
-       
+      
        return totalCost;
+       }
      }
   
-    if ( answer == "no")// if they dont want scuba lessons
+    else if ( answer == "no")// if they dont want scuba lessons
     {
-        if (people >= 5)// make sure they get discount if they meet criteria
-       {
-         discount = baseCharge * .10;
-         baseCharge = baseCharge - discount;
-         
-         return baseCharge;
-       
-       }
+    
        
        return baseCharge;
     
@@ -178,89 +174,71 @@ double scuba()
 }
 double skyDive()
 {
-   double  baseCharge, people, discount;
+  double  baseCharge, people, discount,cost, days;
   double totalCost = 0; 
-  double wildernessLodge, luxuryInn, cost;
+  double wildernessLodge, luxuryInn, dayCost;
   string answer;
   
   while (true)//make sure user enters only the information desired
   {
-    cout << " Hello, how many people are attending Sky Dive Colorado?\n";
-    cin >> people;
+        cout << " Hello, how many people are attending Sky Dive Colorado?\n";
+        cin >> people;
     
-    if( people <= 0)
-    {
-      continue;
-    }
-    
-    baseCharge = 700 * people;// calculating base charge
-    
-    cout << "Would you like to stay at the Wilderness Lodge or at the Luxury Inn hotel? Type in w or l for respective hotel.\n"
-    "  If you dont want to stay at a hotel please press any other key.\n";
-    cin >> answer;// check if they want to stay at a hotel
-
-    
-    if (answer == "w")// if they choose Wilder hotel do the mathd
-     {
-       cout << " How many people are staying at the Wilderness Lodge  hotel?\n";
-       cin >> wildernessLodge;
-       
-       cost = 65 * wildernessLodge; // cost of attending this hotel
-       
-       totalCost = baseCharge + cost;// total cost of the event
-       
-       if( people >= 5)// check if they get  discount
-       {
-         discount = totalCost * .10;
-         
-         totalCost = totalCost - discount;
-         
-         return totalCost;
-       }
-       
-       return totalCost;
-     }
-  
-    else if ( answer == "l")// if they choose the Luxury hotel
-    {
-      
-      cout << " How many people are staying at the Luxury Inn hotel?\n";
-       cin >> luxuryInn;
-       
-       cost = 120 * luxuryInn;// cost of staying at hotel
-       
-        totalCost = baseCharge + cost;// total cost of event including hotel
-        
-        if( people >= 5) // check to see if they qualify for discount
+        if( people <= 0)
         {
-          discount = totalCost * .10;
-          
-          totalCost = totalCost - discount;
-          
-          return totalCost;
-        
+            continue;
         }
     
-       return totalCost;
-    }
     
-    else// if they dont want to stay from either hotels
-     {
-      if( people >= 5)// check to see if they qualify for discount
-      {
-        discount = baseCharge * .10;
-        
-        baseCharge = baseCharge - discount;
-        
-        return baseCharge;
-      
-      }
-      
-       return baseCharge;// no discount return total cost
-     } 
-    }
+        baseCharge = 700 * people;// calculating base charge
+    
+        if(people >=5)
+        {
+             discount = baseCharge * .10;
+             baseCharge = baseCharge - discount;
+   
+        }
+    
+   
+        cout << "Would you like to stay at the Wilderness Lodge or at the Luxury Inn hotel? Type in w or l for respective hotel.\n"
+    "  If you dont want to stay at a hotel please press any other key.\n";
+        cin >> answer;// check if they want to stay at a hotel
 
+    
+        if (answer == "w")// if they choose Wilder hotel do the mathd
+        {
+            cost = 4 * (65 * people); 
+       
+            totalCost = baseCharge + cost;// total cost of the event
+       
+            return totalCost;
+        }
+    
+        else if ( answer == "l")// if they choose the Luxury hotel
+        {
+       
+             dayCost =  4 * (120 * people);// cost of staying at hotel
+       
+        
+            totalCost = baseCharge + dayCost;// total cost of event including hotel
+        
+ 
+         return totalCost;
+        }
+    
+        else// if they dont want to stay from either hotels
+        {
+      
+        
+            return baseCharge;
+      
+        }
+      
+     
+    }    
 }
+
+
 double spelunk()
 {
     const double baseChargePerPerson = 700.00;
