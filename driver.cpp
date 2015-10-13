@@ -178,41 +178,86 @@ double scuba()
 }
 double skyDive()
 {
-  double  baseCharge;
+   double  baseCharge, people, discount;
   double totalCost = 0; 
   double wildernessLodge, luxuryInn, cost;
   string answer;
   
-  while (true)
+  while (true)//make sure user enters only the information desired
   {
-    cout << "Would you like to stay at the Wilderness Lodge or at Luxury Inn? Type in w or l for respective hotel.";
-    cin >> answer;
+    cout << " Hello, how many people are attending Sky Dive Colorado?\n";
+    cin >> people;
     
-      baseCharge = 700 * people;
+    if( people <= 0)
+    {
+      continue;
+    }
     
-    if (answer == "w")
+    baseCharge = 700 * people;// calculating base charge
+    
+    cout << "Would you like to stay at the Wilderness Lodge or at the Luxury Inn hotel? Type in w or l for respective hotel.\n"
+    "  If you dont want to stay at a hotel please press any other key.\n";
+    cin >> answer;// check if they want to stay at a hotel
+
+    
+    if (answer == "w")// if they choose Wilder hotel do the mathd
      {
-       cout << " How many people are staying at the hotel??\n";
+       cout << " How many people are staying at the Wilderness Lodge  hotel?\n";
        cin >> wildernessLodge;
        
-       cost = 65 * wildernessLodge;
+       cost = 65 * wildernessLodge; // cost of attending this hotel
        
-       totalCost = baseCharge + cost;
+       totalCost = baseCharge + cost;// total cost of the event
+       
+       if( people >= 5)// check if they get  discount
+       {
+         discount = totalCost * .10;
+         
+         totalCost = totalCost - discount;
+         
+         return totalCost;
+       }
        
        return totalCost;
      }
   
-    else if ( answer == "l")
+    else if ( answer == "l")// if they choose the Luxury hotel
     {
       
-      cout << " How many people are staying at the hotel??\n";
+      cout << " How many people are staying at the Luxury Inn hotel?\n";
        cin >> luxuryInn;
        
-       cost = 120 * luxuryInn;
+       cost = 120 * luxuryInn;// cost of staying at hotel
        
-        return totalCost = baseCharge + cost;
+        totalCost = baseCharge + cost;// total cost of event including hotel
+        
+        if( people >= 5) // check to see if they qualify for discount
+        {
+          discount = totalCost * .10;
+          
+          totalCost = totalCost - discount;
+          
+          return totalCost;
+        
+        }
     
+       return totalCost;
     }
+    
+    else// if they dont want to stay from either hotels
+     {
+      if( people >= 5)// check to see if they qualify for discount
+      {
+        discount = baseCharge * .10;
+        
+        baseCharge = baseCharge - discount;
+        
+        return baseCharge;
+      
+      }
+      
+       return baseCharge;// no discount return total cost
+     } 
     }
 
 }
